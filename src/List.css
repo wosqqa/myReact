@@ -2,6 +2,7 @@
   font-family: PingFang SC;
   font-weight: 500;
   color: #3a3a3a;
+  background: #fff2c8;
 }
 .content {
   position: relative;
@@ -35,4 +36,13 @@
   font-family: PingFang SC;
   font-weight: 400;
   color: #333333;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.6);
 }
