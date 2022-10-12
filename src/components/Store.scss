@@ -1,0 +1,93 @@
+.store-popup {
+  position: relative;
+  width: 7.5rem;
+  height: 5.54rem;
+  border-radius: 0.4rem 0.4rem 0 0;
+  background: #fff4ee;
+  padding-top: 0.4rem;
+  box-sizing: border-box;
+  .t {
+    color: #222222;
+    font-size: 0.38rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .desc {
+    color: #a0622f;
+    font-size: 0.28rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.1rem;
+  }
+  .close {
+    position: absolute;
+    right: 0.29rem;
+    top: 0.29rem;
+    width: 0.44rem;
+    height: 0.44rem;
+  }
+  .goods-ls {
+    display: flex;
+    padding-left: 0.2rem;
+    margin-top: 0.34rem;
+    .goods-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0.2rem;
+      position: relative;
+      .num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font-size: 0.3rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 0.7rem;
+        color: white;
+      }
+      .icon {
+        width: 1.62rem;
+        height: 1.72rem;
+      }
+      .price {
+        color: #a0622f;
+        font-size: 0.24rem;
+        font-weight: bold;
+        margin-top: 0.1em;
+      }
+      .left {
+        color: #bd916d;
+        font-size: 0.24rem;
+      }
+      .btn {
+        margin-top: 0.12rem;
+        width: 1.58rem;
+        height: 0.57rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 0.28rem;
+        background-image: url('../assets/img/btn2.png');
+        background-position: center;
+        background-size: 1.58rem, 0.57rem;
+        background-repeat: no-repeat;
+        &.disable {
+          background-image: url('../assets/img/disable.png');
+          background-position: center;
+          background-size: 1.58rem, 0.57rem;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}

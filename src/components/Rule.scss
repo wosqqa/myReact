@@ -1,0 +1,33 @@
+.rule-popup {
+  position: relative;
+  width: 7.5rem;
+  height: auto;
+  border-radius: 0.4rem 0.4rem 0 0;
+  background: #fff4ee;
+  padding-top: 0.35rem;
+  box-sizing: border-box;
+  padding-bottom: 0.6rem;
+  max-height: 10rem;
+  overflow: scroll;
+  .t {
+    color: #222222;
+    font-size: 0.38rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  .close {
+    position: absolute;
+    right: 0.29rem;
+    top: 0.29rem;
+    width: 0.44rem;
+    height: 0.44rem;
+  }
+  .txt {
+    color: #222;
+    font-size: 0.3rem;
+    width: 6.74rem;
+    margin: 0 auto;
+    line-height: 0.45rem;
+    margin-top: 0.2rem;
+  }
+}
