@@ -66,11 +66,158 @@
       background-repeat: no-repeat;
     }
   }
+  .centerbox {
+    position: relative;
+    width: 7.5rem;
+    height: 5rem;
+    .progress {
+      margin: 0.2rem auto 0 2.363rem;
+      position: relative;
+      width: 2.97rem;
+      height: 0.44rem;
+      .v {
+        background-image: url('./assets/img/progress.png');
+        background-position: left 0.01rem;
+        background-size: 2.97rem, 0.44rem;
+        background-repeat: no-repeat;
+        width: 50%;
+        height: 0.44rem;
+      }
+      .power-num {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        color: #be2401;
+        font-size: 0.26rem;
+        font-weight: bold;
+        text-shadow: 0.04rem 0 0.02rem #ffffff,
+          calc(#{0.04rem} * -1) 0 0.02rem #ffffff,
+          0 calc(#{0.04rem} * -1) 0.02rem #ffffff, 0 0.04rem 0.02rem #ffffff,
+          0 0 0.04rem #ffffff, 0.04rem 0.04rem 0.02rem #ffffff,
+          0 0 0.04rem #ffffff,
+          calc(#{0.04rem} * -1) calc(#{0.04rem} * -1) 0.02rem #ffffff,
+          0 0 0.04rem #ffffff, calc(#{0.04rem} * -1) 0.04rem 0.02rem #ffffff,
+          0 0 0.04rem #ffffff, 0.04rem calc(#{0.04rem} * -1) 0.02rem #ffffff,
+          0 0 0.04rem #ffffff;
+      }
+    }
+    .kgren {
+      position: absolute;
+      left: 1.6rem;
+      top: 1.37rem;
+      width: 3.04rem;
+      height: 3.08rem;
+      background-image: url('./assets/img/wkg.png');
+      background-position: top;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .other-mining {
+      position: relative;
+      width: 7.5rem;
+      @keyframes move {
+        from {
+          transform: translateY(0.2rem);
+        }
+        to {
+          transform: translateY(0rem);
+        }
+      }
+      .item {
+        position: absolute;
+        text-align: center;
+        animation-name: move;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        img {
+          width: 1.11rem;
+          height: 1.11rem;
+          display: block;
+        }
+        font-size: 0.28rem;
+        color: white;
+        font-weight: bold;
+        &:nth-child(1) {
+          left: 0.51rem;
+          top: 1.06rem;
+          animation-delay: 0.3s;
+        }
+        &:nth-child(2) {
+          animation-delay: 0s;
+          left: 1.77rem;
+        }
+        &:nth-child(3) {
+          right: 1.17rem;
+          animation-delay: 0.5s;
+        }
+        &:nth-child(4) {
+          right: 0.3rem;
+          top: 1.16rem;
+          animation-delay: 0.7s;
+        }
+      }
+    }
+  }
   .bottom {
     position: absolute;
-    top: 12.5rem;
+    top: 11.5rem;
     width: 7.5rem;
-    height: 3rem;
+    height: 4rem;
+    .using-props {
+      position: absolute;
+      left: 0rem;
+      bottom: 2.5;
+      display: flex;
+      padding-left: 0.41rem;
+      .using-item {
+        margin-right: 0.49rem;
+        .count-down {
+          color: #ffe1c8;
+          font-size: 0.26rem;
+          text-align: center;
+        }
+        .pic {
+          width: 1.2rem;
+          height: 1.54rem;
+          position: relative;
+          padding-top: 1rem;
+          box-sizing: border-box;
+          .v {
+            font-size: 0.28rem;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+          }
+        }
+      }
+      .p-1 .pic {
+        background-image: url('./assets/img/props-1.png');
+        background-position: center;
+        background-size: 1.2rem, 1.54rem;
+        background-repeat: no-repeat;
+      }
+      .p-2 .pic {
+        background-image: url('./assets/img/props-2.png');
+        background-position: center;
+        background-size: 1.2rem, 1.54rem;
+        background-repeat: no-repeat;
+      }
+      .p-3 .pic {
+        background-image: url('./assets/img/props-3.png');
+        background-position: center;
+        background-size: 1.2rem, 1.54rem;
+        background-repeat: no-repeat;
+      }
+    }
     .card {
       position: absolute;
       bottom: 0;
@@ -87,7 +234,7 @@
       bottom: 0;
       width: 1.27rem;
       height: 1.4rem;
-      left: 2.55rem;
+      left: 2.2rem;
       background-image: url('./assets/img/record.png');
       background-position: top;
       background-size: cover;
