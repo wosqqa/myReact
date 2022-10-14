@@ -1,7 +1,7 @@
-import ReactDOM from 'react-dom/client'
-const backdropDOM = document.getElementById('backdrop-root')
+import ReactDOM from 'react-dom'
+const backdropDOM = document.getElementById('backdrop-root') as HTMLElement
 
-const Backdrop = (props) => {
+const Backdrop = (props: any) => {
   return ReactDOM.createPortal(
     <div
       style={{

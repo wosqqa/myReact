@@ -15,11 +15,13 @@ import React from 'react'
 //   }
 // })
 
-const usetCon = React.createContext({
-  totalAmount: 10,
-  totalPrice: 980,
-  addItem: () => {},
-  removeItem: () => {},
-  clearItem: () => {}
+const UserCon = React.createContext({
+  // dialogShow: true,
+  // dialogType: 0,
+  // totalAmount: 10,
+  // totalPrice: 980,
+  // addItem: () => {},
+  // removeItem: () => {},
+  // clearItem: () => {}
 })
-export default usetCon
+export default UserCon
