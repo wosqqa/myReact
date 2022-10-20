@@ -1,9 +1,13 @@
 import { useReducer, useState, useMemo } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import './App.scss'
-import UserCon from './store'
+import UserCon from './UserCon'
 import RuleDialog from './components/RulePopup'
 import StorePopup from './components/StorePopup'
 import bgold from './assets/img/b.png'
+import { setUsername } from './demo/MemberSlice'
+import { useGetHanbaoListQuery } from './demo/MemberApi'
+
 const dialogReducer = (state: any, action: any) => {
   switch (action.type) {
     case 1:
@@ -17,6 +21,21 @@ const dialogReducer = (state: any, action: any) => {
   }
 }
 function App() {
+  const { data, isSuccess, isLoading } = useGetHanbaoListQuery(null, {
+    selectFromResult: (result) => {
+      // 指定useQuery的返回结果，可以对返回结果二次加工
+      return result
+    },
+    pollingInterval: 0, //设置轮训的时间 单位毫秒
+    skip: false, //是否跳过当前请求， 默认false
+    refetchOnMountOrArgChange: false, //设置是否每次的都加载数据， false使用缓存，true每次加载数据，数字缓存的时间
+    refetchOnFocus: true, // 是否在重新获取焦点时重载数据
+    refetchOnReconnect: true //是否在重新连接后重载数据
+  })
+  console.log('获取数据',data, isSuccess, isLoading)
+  const rct = useSelector((state) => state)
+  const member = rct.member
+  const dispatch = useDispatch()
   let [dialog, setDialog] = useState({
     dialogShow: false,
     dialogType: 1,
@@ -25,6 +44,18 @@ function App() {
   let changeDialog = (show: boolean, type: number) => {
     setDialog({ dialogShow: show, dialogType: type })
     dialogBoxDispath({ type })
+    dispatch(setUsername('新名称'))
+    const {
+      data: data2,
+      isSuccess: isSuccess2,
+      isLoading: isLoading2
+    } = useGetHanbaoListQuery(null, {
+      selectFromResult: (result) => {
+        // 指定useQuery的返回结果，可以对返回结果二次加工
+        return result
+      },
+    })
+  console.log('点击获取获取数据', data2, isSuccess2, isLoading2)
   }
   const [bubbleInfo, setBubbleInfo] = useState([
     {
@@ -63,7 +94,7 @@ function App() {
         <div className='topbox'>
           <div className='back'></div>
           <div className='title'>
-            天天挖矿
+            {member.username}挖矿{isSuccess && data.dig_status}
           </div>
           <div className='rule' onClick={() => changeDialog(true, 1)}></div>
           <div className='gold'>100g</div>

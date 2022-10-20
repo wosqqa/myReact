@@ -1,6 +1,6 @@
 import { useContext, useState, useMemo } from 'react'
 import Backdrop from './backdropDom'
-import userCon from '../store'
+import userCon from '../UserCon'
 import './Store.scss'
 import closeImg from '../assets/img/close.png'
 function StorePopup() {

@@ -1,7 +1,7 @@
 import { useContext} from 'react'
 import Backdrop from './backdropDom'
 import './Rule.scss'
-import userCon from '../store'
+import userCon from '../UserCon'
 import closeImg from '../assets/img/close.png'
 function RuleDialog() {
   let store = useContext(userCon)
