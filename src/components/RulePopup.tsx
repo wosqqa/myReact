@@ -1,9 +1,13 @@
-import { useContext} from 'react'
+import { useContext,  } from 'react'
+import { useParams, useRouteMatch } from 'react-router-dom'
 import Backdrop from './backdropDom'
 import './Rule.scss'
 import userCon from '../UserCon'
 import closeImg from '../assets/img/close.png'
 function RuleDialog() {
+  const { id } = useParams()
+  const { param, isExact, path, url } = useRouteMatch()
+  console.log('参数', param, isExact, path, url)
   let store = useContext(userCon)
   return (
     <Backdrop>
@@ -13,7 +17,7 @@ function RuleDialog() {
           className='close'
           onClick={() => store.changeDialog(false)}
         />
-        <div className='t'>活动规则</div>
+        <div className='t'>活动规则{id}</div>
         <div className='txt'>
           参与本活动前请仔细阅读本活动规则及相关条款。凡参与本活动，则视用户已阅读理解并同意本活动规则全部内容。
           <br />

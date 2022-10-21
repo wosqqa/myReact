@@ -7,6 +7,7 @@ import StorePopup from './components/StorePopup'
 import bgold from './assets/img/b.png'
 import { setUsername } from './demo/MemberSlice'
 import { useGetHanbaoListQuery } from './demo/MemberApi'
+import { Link, Route, Switch, useParams } from 'react-router-dom'
 
 const dialogReducer = (state: any, action: any) => {
   switch (action.type) {
@@ -36,26 +37,12 @@ function App() {
   const rct = useSelector((state) => state)
   const member = rct.member
   const dispatch = useDispatch()
-  let [dialog, setDialog] = useState({
-    dialogShow: false,
-    dialogType: 1,
-  })
+  let [dialog, setDialog] = useState()
   const [dialogBox, dialogBoxDispath] = useReducer(dialogReducer, '')
   let changeDialog = (show: boolean, type: number) => {
     setDialog({ dialogShow: show, dialogType: type })
     dialogBoxDispath({ type })
     dispatch(setUsername('新名称'))
-    const {
-      data: data2,
-      isSuccess: isSuccess2,
-      isLoading: isLoading2
-    } = useGetHanbaoListQuery(null, {
-      selectFromResult: (result) => {
-        // 指定useQuery的返回结果，可以对返回结果二次加工
-        return result
-      },
-    })
-  console.log('点击获取获取数据', data2, isSuccess2, isLoading2)
   }
   const [bubbleInfo, setBubbleInfo] = useState([
     {
@@ -81,7 +68,6 @@ function App() {
       {b.mineral}
     </div>
   ))
-  
 
   return (
     <UserCon.Provider
@@ -97,7 +83,9 @@ function App() {
             {member.username}挖矿{isSuccess && data.dig_status}
           </div>
           <div className='rule' onClick={() => changeDialog(true, 1)}></div>
-          <div className='gold'>100g</div>
+          <Link to='/rule' className='gold' exact='true'>
+            100g
+          </Link>
         </div>
         <div className='centerbox'>
           <div className='progress'>
@@ -107,6 +95,11 @@ function App() {
           <div className='kgren'></div>
           <div className='other-mining'>{bInfo}</div>
         </div>
+        <Route
+          exact={true}
+          path={['/rule', '/test/:id']}
+          component={RuleDialog}
+        />
         <div className='bottom'>
           <div className='using-props'>
             <div className='using-item p-1'>
